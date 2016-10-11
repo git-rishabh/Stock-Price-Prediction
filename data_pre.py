@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import os,csv
 
-filename='/home/kushagra/Desktop/NSE-CIPLA.csv'
-filename_rev='/home/kushagra/Desktop/NSE-CIPLA_new.csv'
-file_nifty='/home/kushagra/Desktop/NSE-NIFTY_50.csv'
+filename='ml_orig_data/NSE-CIPLA.csv'
+filename_rev='ml_orig_data/NSE-CIPLA_new.csv'
+file_nifty='ml_orig_data/NSE-NIFTY_50.csv'
 
 X=pd.read_csv(filename, sep=",", header=None)
 tot_len=len(X[0])-2
