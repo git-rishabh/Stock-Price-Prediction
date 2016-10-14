@@ -10,8 +10,9 @@ p=2;
 
 %[parameters,prediction,MSE] = Linear_Regression(dataset, percent,alpha, delta,GD)
 [parameters,prediction,MSE]=Linear_Regression(dataset,percent,alpha, delta,p,GD);
+%[prediction,MSE]=Gaussian_regression(dataset,percent,alpha, delta,p,GD);
 
- disp(parameters);
+ %disp(parameters);
  %disp(prediction);
  disp(MSE);
  

@@ -12,7 +12,8 @@ function [ parameters ] = StochasticGD( x, y, parameters, alpha,delta,p)
          h = (x * parameters - y)';
           for j = 1:D
               temp(j)=(1/m) * h * x(:, j);
-              parameters(j) = parameters(j) - (alpha * temp(j))-(p*((delta*parameters(j))^(p-1)));
+              %%% changed by kush
+              parameters(j) = parameters(j) - (alpha * temp(j))-(1/m)*(p*delta*(parameters(j)^(p-1)));
           end
                  
     end

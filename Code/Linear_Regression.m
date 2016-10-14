@@ -19,15 +19,16 @@ testY=test(:,D);
 
     MSE=0;
     parameters = zeros(D,1);
-   if GD==0
-        [parameters] = StochasticGD(trainX, trainY, parameters, alpha,delta,p);
+   %if GD==0
+    %    [parameters] = StochasticGD(trainX, trainY, parameters, alpha,delta,p);
    
-   elseif GD==1
-        [parameters] = BatchGD(trainX, trainY, parameters, alpha,delta,p);
+  % elseif GD==1
+   %     [parameters] = BatchGD(trainX, trainY, parameters, alpha,delta,p);
         
-    end
-    
-        prediction=predict(testX,parameters);
+    %end
+    %%%% commented by kush to chck outcome from inbuilt function
+    Mdl = fitrlinear(trainX,trainY,'Learner','leastsquares', 'Regularization','lasso','Lambda',0.1);
+        prediction= predict(Mdl,testX);
     MSE=calculateMSE(testY,prediction);
     
 

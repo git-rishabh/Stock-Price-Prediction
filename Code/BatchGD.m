@@ -16,7 +16,9 @@ function [ parameters ] = BatchGD( x, y, parameters, alpha,delta,p)
                 h = (x(k,:) * parameters  - y(k,:))';
                 temp(j)=temp(j)+ (1/m)*h * x(k, j);
               end
-                parameters(j) = parameters(j) - (alpha * temp(j))-(p*((delta*parameters(j))^(p-1)));
+              %%%changed by kush
+                parameters(j) = parameters(j) - (alpha * temp(j))-(1/m)*(p*delta*(parameters(j)^(p-1)));
+
           
               
           end
