@@ -1,4 +1,4 @@
-function [ parameters ] = StochasticGD( x, y, parameters, alpha,delta)
+function [ parameters ] = StochasticGD( x, y, parameters, alpha,delta,p)
     
     D=size(x,2);
     m = length(y);
@@ -12,7 +12,7 @@ function [ parameters ] = StochasticGD( x, y, parameters, alpha,delta)
          h = (x * parameters - y)';
           for j = 1:D
               temp(j)=(1/m) * h * x(:, j);
-              parameters(j) = parameters(j) - (alpha * temp(j))-(delta*parameters(j));
+              parameters(j) = parameters(j) - (alpha * temp(j))-(p*((delta*parameters(j))^(p-1)));
           end
                  
     end
