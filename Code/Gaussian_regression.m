@@ -17,7 +17,8 @@ testY=test(:,D);
  trainX = [ones(length(trainX), 1) trainX];
  testX = [ones(length(testX), 1) testX];
  
- sigma0 = 0.002;
+%sigma0 = 0.0002;
+sigma0=std(trainY);
 
 gprMdl = fitrgp(trainX,trainY,'Sigma',sigma0);
 
