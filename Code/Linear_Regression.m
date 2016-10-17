@@ -27,7 +27,10 @@ testY=test(:,D);
         
     %end
     %%%% commented by kush to chck outcome from inbuilt function
-    Mdl = fitrlinear(trainX,trainY,'Learner','leastsquares', 'Regularization','lasso','Lambda',0.1);
+   % Mdl = fitrlinear(trainX,trainY,'Learner','leastsquares', 'Regularization','lasso','Lambda',0.1);
+    [Mdl,fitinfo] = fitrlinear(trainX,trainY);
+    disp(Md1);
+    disp(fitinfo);
         prediction= predict(Mdl,testX);
     MSE=calculateMSE(testY,prediction);
     
