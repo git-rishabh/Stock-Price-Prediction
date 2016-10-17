@@ -17,9 +17,9 @@ testY=test(:,D);
  trainX = [ones(length(trainX), 1) trainX];
  testX = [ones(length(testX), 1) testX];
 
-MdlLin = fitrsvm(trainX,trainY,'Standardize',true,'KFold',5);
-MSE = kfoldLoss(MdlLin);
-prediction=predict(Md1Lin,testX);
+Mdl = fitrsvm(trainX,trainY,'Standardize',true);
+MSE = loss(Mdl, testX, testY);
+prediction=predict(Mdl,testX);
 
 end
 
