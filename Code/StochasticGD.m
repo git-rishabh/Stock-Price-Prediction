@@ -1,5 +1,6 @@
 function [ parameters ] = StochasticGD( x, y, parameters, alpha,delta,p)
-    
+    %disp('parameters');
+    %disp(size(parameters));
     D=size(x,2);
     m = length(y);
     temp=zeros(D,1);
