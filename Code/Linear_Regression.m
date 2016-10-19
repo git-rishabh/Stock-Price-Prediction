@@ -21,13 +21,13 @@ testY=test(:,D);
     parameters = zeros(D,1);
 
     MSE=0;
-%   if GD==0
- %       [parameters] = StochasticGD(trainX, trainY, parameters, alpha,delta,p);
+   if GD==0
+        [parameters] = StochasticGD(trainX, trainY, parameters, alpha,delta,p);
    
- %  elseif GD==1
-  %      [parameters] = BatchGD(trainX, trainY, parameters, alpha,delta,p);
+   elseif GD==1
+        [parameters] = BatchGD(trainX, trainY, parameters, alpha,delta,p);
         
-   % end
+    end
 
 
     %%%% commented by kush to chck outcome from inbuilt function
@@ -38,7 +38,7 @@ testY=test(:,D);
 %prediction= predict(Mdl,testX);
 
 %%added by kush
-[parameters]=CrossValidation(train,2000,alpha, delta,p);
+%[parameters]=CrossValidation(train,2000,alpha, delta,p);
 prediction= predict(testX,parameters);
 %disp('params:');
 %disp(parameters);
