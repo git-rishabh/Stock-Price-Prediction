@@ -1,8 +1,8 @@
  
-dataset_orig=csvread('Datasets\NSE-TCS_new_without_nifty.csv');
+dataset_orig=csvread('Datasets\NSE-TCS_new.csv');
 dataset=normalize(dataset_orig);
 GD=0;  % GD=1 is Batch   % GD=0 is stochastic
-alpha=0.1;
+alpha=0.05;
 delta=0;
 percent=0.8;
 p=2;
