@@ -90,3 +90,5 @@ delta = 0.000010  ,  alpha = 0.000050 ---- MSE = 0.083852
 delta = 0.000010  ,  alpha = 0.000010 ---- MSE = 0.161442
 
 Minimum error at alpha = 0.100000 ,  delta = 0.000000 --- MSE = 0.000603
+batch
+delta = 0.000000  ,  alpha = 0.100000 ---- MSE = 0.001014
