@@ -62,12 +62,11 @@ testY=test(:,D);
 
  trainX = [ones(length(trainX), 1) trainX];
  testX = [ones(length(testX), 1) testX];
-svr_C=[0.00002,0.0002,0.002,0.02,0.2];
-minMSE=1000000;
-minC=0.00002;
+svr_C=[0.00002,0.0002,0.002,0.02,0.2,std(trainY)];
+minC=-1;
 for a = svr_C,
     
-    parameters=[' -s 4 -t 2 -c ',num2str(a)];
+    parameters=[' -s 4 -t 0 -c ',num2str(a)];
     model = svmtrain(trainY,trainX,parameters);
     [x,b,c]=svmpredict(testY,testX,model);
     %disp(b);
@@ -77,7 +76,7 @@ for a = svr_C,
         minMSE = svrMSE;
     end
 end
-    fprintf('Least MSE %f is --- %f\n: ',minC,minMSE);
+    fprintf('Accuracy %f is --- %f\n: ',minC,minMSE);
 %end
         
 

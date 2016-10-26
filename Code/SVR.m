@@ -1,4 +1,4 @@
-function [prediction,MSE ] = SVR( dataset,percent,alpha, delta,p,GD )
+function [MSE ] = SVR( dataset,percent,alpha, delta,p,GD )
 %UNTITLED4 Summary of this function goes here
 %   Detailed explanation goes here
 D=size(dataset,2);
@@ -17,7 +17,7 @@ testY=test(:,D);
  trainX = [ones(length(trainX), 1) trainX];
  testX = [ones(length(testX), 1) testX];
 
-Mdl = fitrsvm(trainX,trainY,'Standardize',true);
+Mdl = fitrsvm(trainX,trainY,'Standardize',true,'KernelFunction','linear');
 MSE = loss(Mdl, testX, testY);
 prediction=predict(Mdl,testX);
 

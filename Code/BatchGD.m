@@ -27,4 +27,3 @@ function [ parameters ] = BatchGD( x, y, parameters, alpha,delta,p)
    
        
 end
-

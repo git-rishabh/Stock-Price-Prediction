@@ -1,14 +1,21 @@
-function [ prediction,MSE ] = Gaussian_regression( dataset,percent,alpha, delta,p,GD )
+function [MSE] = Gaussian_regression( dataset,percent,sigma)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-D=size(dataset,2);
-N=size(dataset,1);
-f=ceil(N*percent);
+
+%sigma0 = 0.0002;
+%sigma0=std(trainY);
+
+ D=size(dataset,2);
+ N=size(dataset,1);
+ f=ceil(N*percent);
  
-train=dataset(1:f,:);
+ train=dataset(1:f,:);
  test=dataset(f:N,:);
+
  
+%% to be commented for cross validation 
 trainX=train(:,1:D-1);
+
 trainY=train(:,D);
 
 testX=test(:,1:D-1);
@@ -16,11 +23,8 @@ testY=test(:,D);
 
  trainX = [ones(length(trainX), 1) trainX];
  testX = [ones(length(testX), 1) testX];
- 
-%sigma0 = 0.0002;
-sigma0=std(trainY);
 
-gprMdl = fitrgp(trainX,trainY,'Sigma',sigma0);
+gprMdl = fitrgp(trainX,trainY,'Sigma',sigma);
 
 %%%loss on the training data
 L = resubLoss(gprMdl);
